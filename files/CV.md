@@ -11,6 +11,9 @@ Senior Data Scientist & AI Safety enthusiast
 
 ### AI Alignment & Technical Safety
 
+#### [SPAR Fellowship](https://sparai.org/) <span style="float:right">Oct 2025 - present</span>
+- CoT monitorabilty project under Qiyao Wei (MATS)  
+
 #### [Algoverse AI Safety Research Fellowship](https://algoverseairesearch.org/ai-safety-fellowship) <span style="float:right">Jul–Aug 2025</span>
 - Two concurrent research projects:
   1. Mechanistic interpretability under Nicky P  
@@ -25,7 +28,7 @@ Senior Data Scientist & AI Safety enthusiast
 ### Work Experience – Behavox
 *Behavox is a security software company specialising in communication surveillance. Leading AI compliance solution in the marketplace.*
 
-#### Data Science Production Team Lead <span style="float: right">2024–present</span>
+#### Data Science Production Team Lead <span style="float: right">2024–2025</span>
 - Leading development and deployment of multilingual NLP applications
 - Executing cross-team roadmapping for ML features under real-world production constraints
 - Building reusable tooling enabling rapid MVPs for client deployments and proofs of concept
