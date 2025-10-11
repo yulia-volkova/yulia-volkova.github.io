@@ -11,8 +11,7 @@ Senior Data Scientist
 
 ### AI Alignment & Technical Safety
 
-#### Visiting Member at [London Initiative for Safe AI (LISA)](https://www.safeai.org.uk/) <span style="float:right">Oct 2025 - present</span>
-- Contributing to London's AI safety research community
+#### Visiting Member at [London Initiative for Safe AI (LISA)](https://www.safeai.org.uk/) <span style="float:right">Sept 2025 - present</span>
 
 #### [SPAR Fellowship](https://sparai.org/) <span style="float:right">Oct 2025 - present</span>
 - CoT monitorabilty project under Qiyao Wei (MATS)  
@@ -56,11 +55,11 @@ Senior Data Scientist
 
 
 ### Education
-**MSc Economics**, London School of Economics <span style="float: right">2017–2018</span>
-Focus in Advanced Macroeconomics, Econometrics, Quantitative Methods
+**MSc Economics**, London School of Economics <span style="float: right">2017–2018</span>  
+— Distinction (dissertation); Advanced Macroeconomics · Econometrics · Quantitative Methods
 
-**BSc Philosophy & Economics**, London School of Economics <span style="float: right">2013–2016</span>
-Focus in Mathematical Methods, Statistics, Econometrics, and Philosophy of Science
+**BSc Philosophy & Economics**, London School of Economics <span style="float: right">2013–2016</span>  
+— Distinction; Mathematical Methods · Statistics · Econometrics · Philosophy of Science
 
 <hr style="border: 1px solid #0077b6; margin: 20px 0;">
 
