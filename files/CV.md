@@ -1,15 +1,18 @@
 <div style="font-size: 16px">
 
 # Yulia Volkova
-Senior Data Scientist & AI Safety enthusiast
+Senior Data Scientist 
 
 📍 London, UK | [LinkedIn](https://www.linkedin.com/in/yulia-volkova/) | +447450514095 | yuulia.volkova@gmail.com
 
-*Senior Data Scientist with 8 years of experience delivering scalable ML solutions and NLP systems in production. Expertise in LLM evaluation & post-training, statistical modelling, and MLOps/infra. Passionate about AI alignment and technical safety, with a focus on interpretability and agentic models.*
+*Senior Data Scientist with 8 years of experience delivering scalable ML solutions and NLP systems in production. Expertise in LLM evaluation & post-training, statistical modelling, and MLOps/infra. Passionate about AI alignment and technical safety, with a focus on mechanistic interpretability and AI control.*
 
 <hr style="border: 1px solid #0077b6; margin: 20px 0;">
 
 ### AI Alignment & Technical Safety
+
+#### Visiting Member at [London Initiative for Safe AI (LISA)](https://www.safeai.org.uk/) <span style="float:right">Oct 2025 - present</span>
+- Contributing to London's AI safety research community
 
 #### [SPAR Fellowship](https://sparai.org/) <span style="float:right">Oct 2025 - present</span>
 - CoT monitorabilty project under Qiyao Wei (MATS)  
@@ -66,7 +69,7 @@ Focus in Mathematical Methods, Statistics, Econometrics, and Philosophy of Scien
 | Category | Skills                                                                                                                                                         |
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Languages & Tools** | Python,  Pandas, NumPy, Scikit-learn, FastAPI, spaCy, SQL, Java, Kotlin, Groovy, Jenkins                                                                       |
-| **Machine Learning & NLP** | LLM fine-tuning (LoRA/qLoRA), PyTorch, HuggingFace, prompt engineering, transformers, SBERT, PCA, t-SNE, models evaluation (precision, recall, ROC/PR-AUC, F1) |
+| **Machine Learning & NLP** | LLM fine-tuning (LoRA/qLoRA), PyTorch, HuggingFace, prompt engineering, transformers, SBERT, PCA, t-SNE, models evaluation (precision, recall, ROC/PR-AUC, F1), Weights & Biases|
 | **Infrastructure** | Testing automation, synthetic data generation, containerised deployment, AWS S3, GCP, Docker, Nomad, Kubernetes, TeamCity, Gitlab CI/CD pipelines              |
 | **Statistics & Econometrics** | Hypothesis testing, time-series analysis, A/B testing, IV estimation, panel regression, fixed/random effects, vector auto-regressions                          |
 | **Leadership** | Mentorship, technical interviewing, product roadmapping, cross-team communication, internal presentations                                                      |
