@@ -31,16 +31,16 @@ Senior Data Scientist
 *Behavox is a security software company specialising in communication surveillance. Leading AI compliance solution in the marketplace.*
 
 #### Data Science Production Team Lead <span style="float: right">2024–2025</span>
-- Leading development and deployment of multilingual NLP applications
-- Executing cross-team roadmapping for ML features under real-world production constraints
-- Building reusable tooling enabling rapid MVPs for client deployments and proofs of concept
+- Led development and deployment of LLM-driven Java applications across 3 products and 14 languages, using a pipeline of fine-tuned models (SBERT -> DeBERTa -> Qwen-14B)
+- Managed execution of Java applications on the Apache Beam Dataflow runner; monitored GPU utilization and used BigQuery datasets to debug pipeline behavior and resolve incidents
+- Led cross-team roadmapping for ML features under production constraints
+- Built reusable tooling—CI/CD templates and MLflow tracking—enabling rapid MVPs for client deliveries 
 
 #### Insider Crime Product Lead <span style="float: right">2020–2024</span>
 - Led R&D and production of high-recall (81% at 0.5% FPR) misconduct detection systems using RoBERTa + SBERT models architecture pipeline
-- Specialised in working with Large Language Models (LLM), fine-tuning them to meet Insider Crime product requirements
+- Specialised in working with LLMs, fine-tuning + pre-training them to meet Insider Crime product requirements
 - Validated and proved that shorter text sequences in RoBERTa training maintain performance, doubling training speed and halving company training costs
-- Developed and maintained cloud-based infrastructures using AWS, Docker + Slack API
-- Maintained model performance through continuous training, synthetic data QA, and AWS S3 workflows
+- Built and operated a chatbot for internal workflows hosted on AWS and containerized with Docker, orchestrated via Nomad using the Slack API—serving 200+ daily users
 - Developed a hybrid recommendation system leveraging RoBERTa and SBERT for text embeddings, K-Means for clustering, and integrated user attributes into a CatBoost model for personalised predictions
 
 #### Data Scientist <span style="float: right">2017–2020</span>
