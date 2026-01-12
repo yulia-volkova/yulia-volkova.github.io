@@ -7,6 +7,9 @@
   <link rel="icon" type="image/png" href="images/black.png">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
   <style>
+    html, body {
+      overflow-x: hidden;
+    }
     body {
       font-family: 'Source Sans Pro', sans-serif;
       background: #ffffff;
@@ -64,6 +67,207 @@
       font-size: 0.9rem;
       color: #888;
     }
+    
+    /* Mode Toggle */
+    .mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10000;
+      display: flex;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 25px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+      border: 2px solid #e0e0e0;
+      overflow: hidden;
+    }
+    
+    .mode-btn {
+      padding: 8px 14px;
+      font-size: 0.8rem;
+      font-family: inherit;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #666;
+      white-space: nowrap;
+    }
+    
+    .mode-btn:hover {
+      background: #f0f0f0;
+    }
+    
+    .mode-btn.active {
+      background: #888;
+      color: white;
+    }
+    
+    /* Bouncing Cat */
+    .bouncing-cat {
+      position: fixed;
+      width: 80px;
+      height: 80px;
+      z-index: 9999;
+      pointer-events: none;
+      will-change: transform;
+      display: none;
+    }
+    
+    .bouncing-cat.active {
+      display: block;
+    }
+    
+    .bouncing-cat img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    /* Peeking Cats */
+    .peeking-cat {
+      position: fixed;
+      z-index: 999;
+      cursor: pointer;
+      transition: all 0.6s ease-out;
+    }
+    
+    .peeking-cat img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    }
+    
+    .peeking-cat .hide-banner {
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+    
+    .peeking-cat:hover .hide-banner {
+      opacity: 1;
+    }
+    
+    /* Peeking positions */
+    .peek-right {
+      right: 0;
+      bottom: 0;
+    }
+    
+    .peek-right img {
+      width: 180px;
+      height: auto;
+    }
+    
+    .peek-left {
+      left: 0;
+      bottom: 0;
+    }
+    
+    .peek-left img {
+      width: 160px;
+      height: auto;
+    }
+    
+    .peek-top {
+      top: 0;
+      left: 0;
+    }
+    
+    .peek-top img {
+      width: 120px;
+      height: auto;
+    }
+    
+    .peek-horizontal {
+      bottom: 0;
+      width: 120px;
+      height: 120px;
+      transition: opacity 0.5s ease !important;
+    }
+    
+    /* Section cat (on divider line) */
+    .has-cat {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      overflow: hidden;
+      width: 100%;
+    }
+    
+    /* Hide black cat icon in cat modes */
+    .peeking-mode .header-icon,
+    .sliding-mode .header-icon,
+    .bouncing-mode .header-icon {
+      display: none;
+    }
+    
+    .section-cat {
+      position: relative;
+      bottom: -6px;
+      width: 70px;
+      flex-shrink: 0;
+      opacity: 0;
+      transform: translateY(100%);
+      pointer-events: none;
+      cursor: pointer;
+    }
+    
+    .section-cat.visible {
+      opacity: 1;
+      pointer-events: auto;
+      animation: popUpBounce 0.8s ease-out forwards;
+    }
+    
+    @keyframes popUpBounce {
+      0% {
+        transform: translateY(100%);
+      }
+      50% {
+        transform: translateY(-12px);
+      }
+      70% {
+        transform: translateY(4px);
+      }
+      85% {
+        transform: translateY(-2px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    
+    .section-cat.hiding {
+      animation: slideDown 0.4s ease-in forwards;
+    }
+    
+    @keyframes slideDown {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+    }
+    
+    .section-cat img {
+      width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 <body>
@@ -73,7 +277,7 @@
   </header>
 
   <div class="section">
-    <h2>About Me</h2>
+    <h2 class="has-cat"><span class="header-text">About Me</span><span class="section-cat" id="aboutMeCat"><img src="images/cats/Subject 11.png" alt="Cat"></span></h2>
       <p>
         I am a software engineer and data scientist interested in AI safety. I have a strong quantitative background (MSc in Economics, LSE) and 8 years of industry experience at a fintech. Currently, I am a visiting member at <a href="https://www.safeai.org.uk/" target="_blank">London Initiative for Safe AI (LISA)</a>. This page highlights my progress, projects, and learning.
       </p>
@@ -83,9 +287,8 @@
   </div>
 
   <div class="section">
-    <h2>
-      <img src="images/black.png" alt="Book Icon" style="width: 1em; height: 1em; vertical-align: middle; margin-right: 0.3em;">
-      Key Projects
+    <h2 class="has-cat">
+      <img src="images/black.png" alt="Book Icon" class="header-icon" style="width: 1em; height: 1em; vertical-align: middle; margin-right: 0.3em;"><span class="header-text">Key Projects</span><span class="section-cat" id="keyProjectsCat"><img src="images/cats/Subject 11.png" alt="Cat"></span>
     </h2>
 
     <div style="margin-bottom: 2rem;">
@@ -132,9 +335,8 @@
   </div>
 
   <div class="section">
-    <h2>
-      <img src="images/black.png" alt="Book Icon" style="width: 1em; height: 1em; vertical-align: middle; margin-right: 0.3em;">
-      Other Research 
+    <h2 class="has-cat">
+      <img src="images/black.png" alt="Book Icon" class="header-icon" style="width: 1em; height: 1em; vertical-align: middle; margin-right: 0.3em;"><span class="header-text">Other Research</span><span class="section-cat" id="otherResearchCat"><img src="images/cats/Subject 11.png" alt="Cat"></span>
     </h2>
     <ul>
       <li><strong>MSc Dissertation</strong> (distinction, LSE) — <a href="https://drive.google.com/file/d/1Ke2w_isoL89c8fvNq5NykW69vad86SC4/view?usp=sharing" target="_blank">Corporate Finance × Behavioral Economics</a><br>
@@ -146,5 +348,274 @@
   <footer>
     <p>Contact: yuulia.volkova@gmail.com | GitHub: <a href="https://yulia-volkova.github.io/">@yulia-volkova</a></p>
   </footer>
+
+  <!-- Mode Toggle -->
+  <div class="mode-toggle">
+    <button class="mode-btn active" data-mode="plain">Plain</button>
+    <button class="mode-btn" data-mode="peeking">Peeking Cats</button>
+    <button class="mode-btn" data-mode="sliding">Sliding Cat</button>
+    <button class="mode-btn" data-mode="bouncing">Bouncing Cat</button>
+  </div>
+
+  <!-- Bouncing Cat -->
+  <div class="bouncing-cat" id="bouncingCat">
+    <img src="images/cats/Subject 9.png" alt="Bouncing Cat">
+  </div>
+
+  <script>
+    // Feature flags
+    const ENABLE_SLIDING_CAT = false;
+    
+    // Mode state
+    let currentMode = 'plain';
+    let animationId = null;
+    let peekingTimeouts = [];
+    
+    // Hide sliding cat button if feature is disabled
+    if (!ENABLE_SLIDING_CAT) {
+      const slidingBtn = document.querySelector('[data-mode="sliding"]');
+      if (slidingBtn) slidingBtn.style.display = 'none';
+    }
+    
+    // Bouncing cat variables
+    const bouncingCat = document.getElementById('bouncingCat');
+    const catSize = 80;
+    let x, y, vx, vy, rotation, rotationSpeed;
+    
+    // Mode buttons
+    const modeButtons = document.querySelectorAll('.mode-btn');
+    
+    modeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mode = btn.dataset.mode;
+        setMode(mode);
+      });
+    });
+    
+    function setMode(mode) {
+      // Update buttons
+      modeButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.mode === mode);
+      });
+      
+      // Clean up previous mode
+      cleanupMode();
+      
+      // Set new mode
+      currentMode = mode;
+      localStorage.setItem('catMode', mode);
+      
+      if (mode === 'bouncing') {
+        startBouncingMode();
+      } else if (mode === 'peeking') {
+        startPeekingMode();
+      } else if (mode === 'sliding') {
+        startSlidingMode();
+      }
+    }
+    
+    function cleanupMode() {
+      // Stop bouncing animation
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+      bouncingCat.classList.remove('active');
+      
+      // Clear peeking timeouts and remove cats
+      peekingTimeouts.forEach(t => clearTimeout(t));
+      peekingTimeouts = [];
+      document.querySelectorAll('.peeking-cat').forEach(cat => cat.remove());
+      
+      // Hide section cats and remove mode classes
+      document.body.classList.remove('peeking-mode', 'sliding-mode', 'bouncing-mode');
+      document.querySelectorAll('.section-cat').forEach(cat => {
+        cat.classList.remove('visible', 'hiding');
+      });
+    }
+    
+    // ========== BOUNCING MODE ==========
+    function startBouncingMode() {
+      // Add bouncing mode class to body (hides black cat icons)
+      document.body.classList.add('bouncing-mode');
+      
+      // Show section cats
+      document.querySelectorAll('.section-cat').forEach(cat => {
+        cat.classList.add('visible');
+      });
+      
+      bouncingCat.classList.add('active');
+      
+      // Initialize position and velocity (slow floating)
+      x = Math.random() * (window.innerWidth - catSize);
+      y = Math.random() * (window.innerHeight - catSize);
+      vx = (Math.random() > 0.5 ? 1 : -1) * (0.8 + Math.random() * 0.5);
+      vy = (Math.random() > 0.5 ? 1 : -1) * (0.8 + Math.random() * 0.5);
+      rotation = 0;
+      rotationSpeed = 0.5;
+      
+      animateBounce();
+    }
+    
+    function animateBounce() {
+      if (currentMode !== 'bouncing') return;
+      
+      x += vx;
+      y += vy;
+      rotation += rotationSpeed;
+      
+      // Bounce off walls (gentle)
+      if (x + catSize >= window.innerWidth) {
+        x = window.innerWidth - catSize;
+        vx = -vx;
+        rotationSpeed = -rotationSpeed + (Math.random() - 0.5) * 0.3;
+      }
+      if (x <= 0) {
+        x = 0;
+        vx = -vx;
+        rotationSpeed = -rotationSpeed + (Math.random() - 0.5) * 0.3;
+      }
+      if (y + catSize >= window.innerHeight) {
+        y = window.innerHeight - catSize;
+        vy = -vy;
+        rotationSpeed = -rotationSpeed + (Math.random() - 0.5) * 0.3;
+      }
+      if (y <= 0) {
+        y = 0;
+        vy = -vy;
+        rotationSpeed = -rotationSpeed + (Math.random() - 0.5) * 0.3;
+      }
+      
+      bouncingCat.style.left = x + 'px';
+      bouncingCat.style.top = y + 'px';
+      bouncingCat.style.transform = 'rotate(' + rotation + 'deg)';
+      
+      animationId = requestAnimationFrame(animateBounce);
+    }
+    
+    // ========== PEEKING MODE ==========
+    function startPeekingMode() {
+      // Add peeking mode class to body (hides black cat icons)
+      document.body.classList.add('peeking-mode');
+      
+      // Subject 11 - on all header dividers (immediate)
+      document.querySelectorAll('.section-cat').forEach(cat => {
+        cat.classList.add('visible');
+      });
+      
+      // Subject 8 flipped - bottom right (after 2s)
+      peekingTimeouts.push(setTimeout(() => showPeekingCat('right', 'images/cats/Subject 8 flipped.png'), 2000));
+      
+      // Subject 8 - bottom left (after 18s)
+      peekingTimeouts.push(setTimeout(() => showPeekingCat('left', 'images/cats/Subject 8.png'), 18000));
+      
+      // Subject 3 - top left (after 28s)
+      peekingTimeouts.push(setTimeout(() => showPeekingCat('top', 'images/cats/Subject 3.png'), 28000));
+    }
+    
+    // ========== SLIDING MODE ==========
+    function startSlidingMode() {
+      // Add sliding mode class to body (hides black cat icons)
+      document.body.classList.add('sliding-mode');
+      
+      // Show section cats
+      document.querySelectorAll('.section-cat').forEach(cat => {
+        cat.classList.add('visible');
+      });
+      
+      showHorizontalCat();
+    }
+    
+    function showHorizontalCat() {
+      if (currentMode !== 'sliding') return;
+      
+      const cat = document.createElement('div');
+      cat.className = 'peeking-cat peek-horizontal';
+      cat.innerHTML = '<img src="images/cats/Subject 5.png" alt="Cat"><div class="hide-banner">hide me</div>';
+      
+      // Start from right edge (off screen)
+      let posX = window.innerWidth;
+      cat.style.left = posX + 'px';
+      
+      document.body.appendChild(cat);
+      
+      // Slide right to left, wrap through walls like snake
+      function slideAcross() {
+        if (currentMode !== 'sliding' || !document.body.contains(cat)) return;
+        posX -= 2;
+        // When fully off left side, reappear from right
+        if (posX < -120) {
+          posX = window.innerWidth;
+        }
+        cat.style.left = posX + 'px';
+        requestAnimationFrame(slideAcross);
+      }
+      slideAcross();
+      
+      cat.addEventListener('click', () => {
+        cat.style.left = '-150px';
+        cat.style.opacity = '0';
+        setTimeout(() => cat.remove(), 500);
+      });
+    }
+    
+    function showPeekingCat(position, imgSrc) {
+      if (currentMode !== 'peeking') return;
+      
+      const cat = document.createElement('div');
+      cat.className = 'peeking-cat peek-' + position;
+      cat.innerHTML = '<img src="' + imgSrc + '" alt="Cat"><div class="hide-banner">hide me</div>';
+      
+      // Set initial hidden position (off-screen)
+      if (position === 'right') {
+        cat.style.right = '-200px';
+      } else if (position === 'left') {
+        cat.style.left = '-180px';
+      } else if (position === 'top') {
+        cat.style.left = '-140px';
+      }
+      
+      document.body.appendChild(cat);
+      
+      // Small delay then slide in
+      setTimeout(() => {
+        if (position === 'right') {
+          cat.style.right = '0';
+        } else if (position === 'left') {
+          cat.style.left = '0';
+        } else if (position === 'top') {
+          cat.style.left = '0';
+        }
+      }, 50);
+      
+      // Click to hide (slide back)
+      cat.addEventListener('click', () => {
+        if (position === 'right') {
+          cat.style.right = '-200px';
+        } else if (position === 'left') {
+          cat.style.left = '-180px';
+        } else if (position === 'top') {
+          cat.style.left = '-140px';
+        }
+        setTimeout(() => cat.remove(), 500);
+      });
+    }
+    
+    // Section cat click handlers
+    document.querySelectorAll('.section-cat').forEach(cat => {
+      cat.addEventListener('click', () => {
+        cat.classList.add('hiding');
+        setTimeout(() => {
+          cat.classList.remove('visible', 'hiding');
+        }, 400);
+      });
+    });
+    
+    // Load saved preference
+    const savedMode = localStorage.getItem('catMode');
+    if (savedMode && savedMode !== 'plain') {
+      setMode(savedMode);
+    }
+  </script>
 </body>
 </html>
