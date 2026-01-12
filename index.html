@@ -351,7 +351,7 @@
 
   <!-- Mode Toggle -->
   <div class="mode-toggle">
-    <button class="mode-btn active" data-mode="plain">Plain</button>
+    <button class="mode-btn" data-mode="plain">Plain</button>
     <button class="mode-btn" data-mode="peeking">Peeking Cats</button>
     <button class="mode-btn" data-mode="sliding">Sliding Cat</button>
     <button class="mode-btn" data-mode="bouncing">Bouncing Cat</button>
@@ -506,11 +506,11 @@
       // Subject 8 flipped - bottom right (after 2s)
       peekingTimeouts.push(setTimeout(() => showPeekingCat('right', 'images/cats/Subject 8 flipped.png'), 2000));
       
-      // Subject 8 - bottom left (after 18s)
-      peekingTimeouts.push(setTimeout(() => showPeekingCat('left', 'images/cats/Subject 8.png'), 18000));
+      // Subject 8 - bottom left (after 7s)
+      peekingTimeouts.push(setTimeout(() => showPeekingCat('left', 'images/cats/Subject 8.png'), 7000));
       
-      // Subject 3 - top left (after 28s)
-      peekingTimeouts.push(setTimeout(() => showPeekingCat('top', 'images/cats/Subject 3.png'), 28000));
+      // Subject 3 - top left (after 12s)
+      peekingTimeouts.push(setTimeout(() => showPeekingCat('top', 'images/cats/Subject 3.png'), 12000));
     }
     
     // ========== SLIDING MODE ==========
@@ -611,10 +611,12 @@
       });
     });
     
-    // Load saved preference
+    // Load saved preference (default to bouncing cat)
     const savedMode = localStorage.getItem('catMode');
-    if (savedMode && savedMode !== 'plain') {
+    if (savedMode) {
       setMode(savedMode);
+    } else {
+      setMode('bouncing');
     }
   </script>
 </body>
