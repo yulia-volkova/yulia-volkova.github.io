@@ -6,6 +6,7 @@
   <title>Yulia Volkova</title>
   <link rel="icon" type="image/png" href="images/black.png">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     html, body {
       overflow-x: hidden;
@@ -25,6 +26,23 @@
     header {
       text-align: center;
       margin-bottom: 2rem;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+      color: #ccc;
+    }
+    .social-links a {
+      color: #888;
+      font-size: 1rem;
+      transition: color 0.2s ease;
+    }
+    .social-links a:hover {
+      color: #008080;
+      text-decoration: none;
     }
     h1 {
       margin: 0;
@@ -68,7 +86,7 @@
       font-size: 0.9rem;
       color: #888;
     }
-    
+
     /* Mode Toggle */
     .mode-toggle {
       position: fixed;
@@ -274,13 +292,21 @@
 <body>
   <header>
     <h1>Yulia Volkova</h1>
-    <p style="color: #666; font-style: italic;">This page is a constant work in progress</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/yuulia-volkova/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <span>|</span>
+      <a href="https://github.com/yulia-volkova" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <span>|</span>
+      <a href="mailto:yuulia.volkova@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <span>|</span>
+      <a href="art.html" title="Art Portfolio">my art</a>
+    </div>
   </header>
 
   <div class="section">
     <h2 class="has-cat"><span class="header-text">About Me</span><span class="section-cat" id="aboutMeCat"><img src="images/cats/Subject 11.png" alt="Cat"></span></h2>
       <p>
-        I am a current <a href="https://www.matsprogram.org/" target="_blank" style="color: inherit;">MATS</a> scholar and a software engineer + data scientist at a fintech in the past. I have a strong quantitative background (MSc in Economics, LSE) and 8 years of industry experience. This page highlights my progress, projects, and my cat!
+        I am a current <a href="https://www.matsprogram.org/" target="_blank" style="color: inherit;">MATS</a> scholar and a software engineer + data scientist at a fintech in the past. I have a strong quantitative background (MSc in Economics, LSE) and 8 years of industry experience. In my free time I am also an <a href="art.html">artist</a>. This page highlights my progress, projects, and my cat!
       </p>
     <p>
       <strong style="font-size: 1.3em;"><a href="files/CV.pdf">View my CV</a></strong>

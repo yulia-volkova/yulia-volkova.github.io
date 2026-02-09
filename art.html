@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Portfolio - Yulia Volkova</title>
+  <link rel="icon" type="image/png" href="images/black.png">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      background: #121212;
+      color: #e0e0e0;
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      font-weight: 300;
+      letter-spacing: 0.1em;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+    }
+    a {
+      color: #5fd4d4;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    a:hover {
+      color: #8eeaea;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    /* Back link */
+    .back-link {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 10000;
+      font-size: 0.85rem;
+      background: rgba(30, 30, 30, 0.95);
+      padding: 10px 18px;
+      border-radius: 25px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      border: 1px solid #333;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Tab Navigation */
+    .tab-nav {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid #333;
+      padding-bottom: 1.5rem;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: #888;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      position: relative;
+      transition: color 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .tab-btn:hover {
+      color: #5fd4d4;
+    }
+
+    .tab-btn.active {
+      color: #5fd4d4;
+      font-weight: 400;
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1.5rem;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #5fd4d4;
+      border-radius: 2px;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: none;
+    }
+
+    .gallery.active {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+      .gallery.active {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery.active {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gallery-item {
+      background: #1e1e1e;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 0.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .placeholder-text {
+      font-style: italic;
+    }
+
+    /* Mode Toggle */
+    .mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10000;
+      display: flex;
+      background: rgba(30, 30, 30, 0.95);
+      border-radius: 25px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      border: 1px solid #333;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .mode-btn {
+      padding: 8px 14px;
+      font-size: 0.75rem;
+      font-family: inherit;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #888;
+      white-space: nowrap;
+    }
+
+    .mode-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #e0e0e0;
+    }
+
+    .mode-btn.active {
+      background: #5fd4d4;
+      color: #121212;
+    }
+
+    /* Bouncing Cat */
+    .bouncing-cat {
+      position: fixed;
+      width: 80px;
+      height: 80px;
+      z-index: 9999;
+      pointer-events: none;
+      will-change: transform;
+      display: none;
+    }
+
+    .bouncing-cat.active {
+      display: block;
+    }
+
+    .bouncing-cat img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Peeking Cats */
+    .peeking-cat {
+      position: fixed;
+      z-index: 999;
+      cursor: pointer;
+      transition: all 0.6s ease-out;
+    }
+
+    .peeking-cat img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    }
+
+    .peeking-cat .hide-banner {
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+
+    .peeking-cat:hover .hide-banner {
+      opacity: 1;
+    }
+
+    /* Peeking positions */
+    .peek-right {
+      right: 0;
+      bottom: 0;
+    }
+
+    .peek-right img {
+      width: 180px;
+      height: auto;
+    }
+
+    .peek-left {
+      left: 0;
+      bottom: 0;
+    }
+
+    .peek-left img {
+      width: 160px;
+      height: auto;
+    }
+
+    .peek-top {
+      top: 0;
+      left: 0;
+    }
+
+    .peek-top img {
+      width: 120px;
+      height: auto;
+    }
+
+    .peek-horizontal {
+      bottom: 0;
+      width: 120px;
+      height: 120px;
+      transition: opacity 0.5s ease !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Back Link -->
+  <a href="index.html" class="back-link">&larr; Back to Main</a>
+
+  <header>
+    <h1>Yulia Volkova Art</h1>
+  </header>
+
+  <!-- Tab Navigation -->
+  <nav class="tab-nav">
+    <button class="tab-btn active" data-tab="oil">Oil Paintings</button>
+    <button class="tab-btn" data-tab="sketches">Quick Sketches</button>
+    <button class="tab-btn" data-tab="pencil">Pencil Drawings</button>
+  </nav>
+
+  <!-- Oil Paintings Gallery -->
+  <div class="gallery active" id="oil-gallery">
+    <div class="gallery-item"><img src="images/art/oil/IMG_9912.jpg" alt="Oil painting"></div>
+    <div class="gallery-item"><img src="images/art/oil/IMG_5634.JPG" alt="Oil painting"></div>
+    <div class="gallery-item"><img src="images/art/oil/IMG_9909.jpg" alt="Oil painting"></div>
+    <div class="gallery-item"><img src="images/art/oil/IMG_3355.jpg" alt="Oil painting"></div>
+    <div class="gallery-item"><img src="images/art/oil/IMG_5424.jpg" alt="Oil painting"></div>
+    <div class="gallery-item"><img src="images/art/oil/IMG_0668.jpg" alt="Oil painting"></div>
+    <div class="gallery-item"><img src="images/art/oil/IMG_2292.jpg" alt="Oil painting"></div>
+    <div class="gallery-item"><img src="images/art/oil/IMG_1201.jpg" alt="Oil painting"></div>
+    <div class="gallery-item"><img src="images/art/oil/IMG_1178.jpg" alt="Oil painting"></div>
+    <div class="gallery-item"><img src="images/art/oil/IMG_1078 2.jpg" alt="Oil painting"></div>
+    <div class="gallery-item"><img src="images/art/oil/IMG_9223 2.jpg" alt="Oil painting"></div>
+    <div class="gallery-item"><img src="images/art/oil/IMG_7637 2.jpg" alt="Oil painting"></div>
+    <div class="gallery-item"><img src="images/art/oil/IMG_4725 2.jpg" alt="Oil painting"></div>
+    <div class="gallery-item"><img src="images/art/oil/IMG_4814.jpg" alt="Oil painting"></div>
+    <div class="gallery-item"><img src="images/art/oil/IMG_7027.jpg" alt="Oil painting"></div>
+    <div class="gallery-item"><img src="images/art/oil/IMG_5065.jpg" alt="Oil painting"></div>
+    <div class="gallery-item"><img src="images/art/oil/IMG_6955.jpg" alt="Oil painting"></div>
+    <div class="gallery-item"><img src="images/art/oil/IMG_0111.jpg" alt="Oil painting"></div>
+  </div>
+
+  <!-- Quick Sketches Gallery -->
+  <div class="gallery" id="sketches-gallery">
+    <div class="gallery-item"><img src="images/art/sketches/IMG_8102.jpg" alt="Sketch"></div>
+    <div class="gallery-item"><img src="images/art/sketches/IMG_5496.jpg" alt="Sketch"></div>
+    <div class="gallery-item"><img src="images/art/sketches/IMG_3075.jpg" alt="Sketch"></div>
+    <div class="gallery-item"><img src="images/art/sketches/IMG_5593.jpg" alt="Sketch"></div>
+    <div class="gallery-item"><img src="images/art/sketches/IMG_5592.jpg" alt="Sketch"></div>
+    <div class="gallery-item"><img src="images/art/sketches/63CB1A22-C876-4C01-8249-AABEACDD90F1.jpg" alt="Sketch"></div>
+    <div class="gallery-item"><img src="images/art/sketches/IMG_4875.jpg" alt="Sketch"></div>
+    <div class="gallery-item"><img src="images/art/sketches/IMG_4392.jpg" alt="Sketch"></div>
+    <div class="gallery-item"><img src="images/art/sketches/IMG_4386.jpg" alt="Sketch"></div>
+    <div class="gallery-item"><img src="images/art/sketches/IMG_1297.jpg" alt="Sketch"></div>
+    <div class="gallery-item"><img src="images/art/sketches/IMG_7434.jpg" alt="Sketch"></div>
+    <div class="gallery-item"><img src="images/art/sketches/IMG_8846.jpg" alt="Sketch"></div>
+    <div class="gallery-item"><img src="images/art/sketches/IMG_8710.jpg" alt="Sketch"></div>
+  </div>
+
+  <!-- Pencil Drawings Gallery -->
+  <div class="gallery" id="pencil-gallery">
+    <div class="gallery-item">
+      <span class="placeholder-text">Coming soon...</span>
+    </div>
+  </div>
+
+  <footer>
+    <p>Contact: yuulia.volkova@gmail.com</p>
+  </footer>
+
+  <!-- Mode Toggle -->
+  <div class="mode-toggle">
+    <button class="mode-btn" data-mode="plain">Plain</button>
+    <button class="mode-btn" data-mode="peeking">Peeking Cats</button>
+    <button class="mode-btn" data-mode="sliding">Sliding Cat</button>
+    <button class="mode-btn" data-mode="bouncing">Bouncing Cat</button>
+  </div>
+
+  <!-- Bouncing Cat -->
+  <div class="bouncing-cat" id="bouncingCat">
+    <img src="images/cats/Subject 9.png" alt="Bouncing Cat">
+  </div>
+
+  <script>
+    // Tab switching
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const galleries = document.querySelectorAll('.gallery');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabName = btn.dataset.tab;
+
+        // Update active tab
+        tabButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Show corresponding gallery
+        galleries.forEach(g => g.classList.remove('active'));
+        document.getElementById(tabName + '-gallery').classList.add('active');
+      });
+    });
+
+    // Feature flags
+    const ENABLE_SLIDING_CAT = false;
+
+    // Mode state
+    let currentMode = 'plain';
+    let animationId = null;
+    let peekingTimeouts = [];
+
+    // Hide sliding cat button if feature is disabled
+    if (!ENABLE_SLIDING_CAT) {
+      const slidingBtn = document.querySelector('[data-mode="sliding"]');
+      if (slidingBtn) slidingBtn.style.display = 'none';
+    }
+
+    // Bouncing cat variables
+    const bouncingCat = document.getElementById('bouncingCat');
+    const catSize = 80;
+    let x, y, vx, vy, rotation, rotationSpeed;
+
+    // Mode buttons
+    const modeButtons = document.querySelectorAll('.mode-btn');
+
+    modeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mode = btn.dataset.mode;
+        setMode(mode);
+      });
+    });
+
+    function setMode(mode) {
+      // Update buttons
+      modeButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.mode === mode);
+      });
+
+      // Clean up previous mode
+      cleanupMode();
+
+      // Set new mode
+      currentMode = mode;
+      localStorage.setItem('catMode', mode);
+
+      if (mode === 'bouncing') {
+        startBouncingMode();
+      } else if (mode === 'peeking') {
+        startPeekingMode();
+      } else if (mode === 'sliding') {
+        startSlidingMode();
+      }
+    }
+
+    function cleanupMode() {
+      // Stop bouncing animation
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+      bouncingCat.classList.remove('active');
+
+      // Clear peeking timeouts and remove cats
+      peekingTimeouts.forEach(t => clearTimeout(t));
+      peekingTimeouts = [];
+      document.querySelectorAll('.peeking-cat').forEach(cat => cat.remove());
+
+      // Remove mode classes
+      document.body.classList.remove('peeking-mode', 'sliding-mode', 'bouncing-mode');
+    }
+
+    // ========== BOUNCING MODE ==========
+    function startBouncingMode() {
+      document.body.classList.add('bouncing-mode');
+      bouncingCat.classList.add('active');
+
+      // Initialize position and velocity (slow floating)
+      x = Math.random() * (window.innerWidth - catSize);
+      y = Math.random() * (window.innerHeight - catSize);
+      vx = (Math.random() > 0.5 ? 1 : -1) * (0.8 + Math.random() * 0.5);
+      vy = (Math.random() > 0.5 ? 1 : -1) * (0.8 + Math.random() * 0.5);
+      rotation = 0;
+      rotationSpeed = 0.5;
+
+      animateBounce();
+    }
+
+    function animateBounce() {
+      if (currentMode !== 'bouncing') return;
+
+      x += vx;
+      y += vy;
+      rotation += rotationSpeed;
+
+      // Bounce off walls (gentle)
+      if (x + catSize >= window.innerWidth) {
+        x = window.innerWidth - catSize;
+        vx = -vx;
+        rotationSpeed = -rotationSpeed + (Math.random() - 0.5) * 0.3;
+      }
+      if (x <= 0) {
+        x = 0;
+        vx = -vx;
+        rotationSpeed = -rotationSpeed + (Math.random() - 0.5) * 0.3;
+      }
+      if (y + catSize >= window.innerHeight) {
+        y = window.innerHeight - catSize;
+        vy = -vy;
+        rotationSpeed = -rotationSpeed + (Math.random() - 0.5) * 0.3;
+      }
+      if (y <= 0) {
+        y = 0;
+        vy = -vy;
+        rotationSpeed = -rotationSpeed + (Math.random() - 0.5) * 0.3;
+      }
+
+      bouncingCat.style.left = x + 'px';
+      bouncingCat.style.top = y + 'px';
+      bouncingCat.style.transform = 'rotate(' + rotation + 'deg)';
+
+      animationId = requestAnimationFrame(animateBounce);
+    }
+
+    // ========== PEEKING MODE ==========
+    function startPeekingMode() {
+      document.body.classList.add('peeking-mode');
+
+      // Subject 8 flipped - bottom right (after 2s)
+      peekingTimeouts.push(setTimeout(() => showPeekingCat('right', 'images/cats/Subject 8 flipped.png'), 2000));
+
+      // Subject 8 - bottom left (after 7s)
+      peekingTimeouts.push(setTimeout(() => showPeekingCat('left', 'images/cats/Subject 8.png'), 7000));
+
+      // Subject 3 - top left (after 12s)
+      peekingTimeouts.push(setTimeout(() => showPeekingCat('top', 'images/cats/Subject 3.png'), 12000));
+    }
+
+    // ========== SLIDING MODE ==========
+    function startSlidingMode() {
+      document.body.classList.add('sliding-mode');
+      showHorizontalCat();
+    }
+
+    function showHorizontalCat() {
+      if (currentMode !== 'sliding') return;
+
+      const cat = document.createElement('div');
+      cat.className = 'peeking-cat peek-horizontal';
+      cat.innerHTML = '<img src="images/cats/Subject 5.png" alt="Cat"><div class="hide-banner">hide me</div>';
+
+      // Start from right edge (off screen)
+      let posX = window.innerWidth;
+      cat.style.left = posX + 'px';
+
+      document.body.appendChild(cat);
+
+      // Slide right to left, wrap through walls like snake
+      function slideAcross() {
+        if (currentMode !== 'sliding' || !document.body.contains(cat)) return;
+        posX -= 2;
+        // When fully off left side, reappear from right
+        if (posX < -120) {
+          posX = window.innerWidth;
+        }
+        cat.style.left = posX + 'px';
+        requestAnimationFrame(slideAcross);
+      }
+      slideAcross();
+
+      cat.addEventListener('click', () => {
+        cat.style.left = '-150px';
+        cat.style.opacity = '0';
+        setTimeout(() => cat.remove(), 500);
+      });
+    }
+
+    function showPeekingCat(position, imgSrc) {
+      if (currentMode !== 'peeking') return;
+
+      const cat = document.createElement('div');
+      cat.className = 'peeking-cat peek-' + position;
+      cat.innerHTML = '<img src="' + imgSrc + '" alt="Cat"><div class="hide-banner">hide me</div>';
+
+      // Set initial hidden position (off-screen)
+      if (position === 'right') {
+        cat.style.right = '-200px';
+      } else if (position === 'left') {
+        cat.style.left = '-180px';
+      } else if (position === 'top') {
+        cat.style.left = '-140px';
+      }
+
+      document.body.appendChild(cat);
+
+      // Small delay then slide in
+      setTimeout(() => {
+        if (position === 'right') {
+          cat.style.right = '0';
+        } else if (position === 'left') {
+          cat.style.left = '0';
+        } else if (position === 'top') {
+          cat.style.left = '0';
+        }
+      }, 50);
+
+      // Click to hide (slide back)
+      cat.addEventListener('click', () => {
+        if (position === 'right') {
+          cat.style.right = '-200px';
+        } else if (position === 'left') {
+          cat.style.left = '-180px';
+        } else if (position === 'top') {
+          cat.style.left = '-140px';
+        }
+        setTimeout(() => cat.remove(), 500);
+      });
+    }
+
+    // Load saved preference (default to bouncing cat)
+    const savedMode = localStorage.getItem('catMode');
+    if (savedMode) {
+      setMode(savedMode);
+    } else {
+      setMode('bouncing');
+    }
+  </script>
+</body>
+</html>
