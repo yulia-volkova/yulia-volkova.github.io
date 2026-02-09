@@ -552,14 +552,14 @@
         cat.classList.add('visible');
       });
       
-      // Subject 8 flipped - bottom right (after 2s)
-      peekingTimeouts.push(setTimeout(() => showPeekingCat('right', 'images/cats/Subject 8 flipped.png'), 2000));
-      
-      // Subject 8 - bottom left (after 7s)
-      peekingTimeouts.push(setTimeout(() => showPeekingCat('left', 'images/cats/Subject 8.png'), 7000));
-      
-      // Subject 3 - top left (after 12s)
-      peekingTimeouts.push(setTimeout(() => showPeekingCat('top', 'images/cats/Subject 3.png'), 12000));
+      // Subject 8 flipped - bottom right (after 5s)
+      peekingTimeouts.push(setTimeout(() => showPeekingCat('right', 'images/cats/Subject 8 flipped.png'), 5000));
+
+      // Subject 8 - bottom left (after 20s)
+      peekingTimeouts.push(setTimeout(() => showPeekingCat('left', 'images/cats/Subject 8.png'), 20000));
+
+      // Subject 3 - top left (after 35s)
+      peekingTimeouts.push(setTimeout(() => showPeekingCat('top', 'images/cats/Subject 3.png'), 35000));
     }
     
     // ========== SLIDING MODE ==========
@@ -660,12 +660,12 @@
       });
     });
     
-    // Load saved preference (default to bouncing cat)
+    // Load saved preference (default to peeking cats)
     const savedMode = localStorage.getItem('catMode');
     if (savedMode) {
       setMode(savedMode);
     } else {
-      setMode('bouncing');
+      setMode('peeking');
     }
 
   </script>

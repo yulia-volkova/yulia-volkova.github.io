@@ -435,7 +435,7 @@
 
       // Set new mode
       currentMode = mode;
-      localStorage.setItem('catMode', mode);
+      localStorage.setItem('artCatMode', mode);
 
       if (mode === 'bouncing') {
         startBouncingMode();
@@ -610,12 +610,12 @@
       });
     }
 
-    // Load saved preference (default to bouncing cat)
-    const savedMode = localStorage.getItem('catMode');
+    // Load saved preference (default to plain for art page)
+    const savedMode = localStorage.getItem('artCatMode');
     if (savedMode) {
       setMode(savedMode);
     } else {
-      setMode('bouncing');
+      setMode('plain');
     }
   </script>
 </body>
