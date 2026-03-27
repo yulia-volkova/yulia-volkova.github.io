@@ -13,8 +13,12 @@ Senior Data Scientist
 
 #### Visiting Member at [London Initiative for Safe AI (LISA)](https://www.safeai.org.uk/) <span style="float:right">Sept 2025 - present</span>
 
-#### [SPAR Fellowship](https://sparai.org/) <span style="float:right">Oct 2025 - present</span>
-- CoT monitorabilty project under Qiyao Wei (MATS)  
+#### [MATS 9.0](https://www.matsprogram.org/) <span style="float:right">Jan 2026 - present</span>
+- Control evaluations for covert malicious fine-tuning under Rhys Ward
+- Selected for MATS 9.0 Spotlight Talk
+
+#### [SPAR Fellowship](https://sparai.org/) <span style="float:right">Oct–Dec 2025</span>
+- CoT monitorabilty project under Qiyao Wei (MATS 8.0, Cambridge University)  
 
 #### [Algoverse AI Safety Research Fellowship](https://algoverseairesearch.org/ai-safety-fellowship) <span style="float:right">Jul–Aug 2025</span>
 - Two concurrent research projects:
