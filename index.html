@@ -95,15 +95,15 @@
       z-index: 10000;
       display: flex;
       background: rgba(255, 255, 255, 0.95);
-      border-radius: 25px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-      border: 2px solid #e0e0e0;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e0e0e0;
       overflow: hidden;
     }
     
     .mode-btn {
-      padding: 8px 14px;
-      font-size: 0.8rem;
+      padding: 5px 10px;
+      font-size: 0.7rem;
       font-family: inherit;
       border: none;
       background: transparent;
@@ -286,6 +286,14 @@
     .section-cat img {
       width: 100%;
       height: auto;
+    }
+
+    /* Hide timeline/section photos in cat modes */
+    .peeking-mode .timeline-body img,
+    .peeking-mode .section > img,
+    .bouncing-mode .timeline-body img,
+    .bouncing-mode .section > img {
+      display: none;
     }
 
     /* Vertical Timeline */
@@ -542,6 +550,13 @@
       // Set new mode
       currentMode = mode;
       localStorage.setItem('catMode', mode);
+      const url = new URL(window.location);
+      if (mode === 'plain') {
+        url.searchParams.delete('mode');
+      } else {
+        url.searchParams.set('mode', mode);
+      }
+      history.replaceState(null, '', url);
       
       if (mode === 'bouncing') {
         startBouncingMode();
@@ -749,12 +764,13 @@
       });
     });
     
-    // Load saved preference (default to peeking cats)
-    const savedMode = localStorage.getItem('catMode');
-    if (savedMode) {
-      setMode(savedMode);
+    // Load mode from URL param, then localStorage, default to plain
+    const urlMode = new URLSearchParams(window.location.search).get('mode');
+    if (urlMode && ['plain', 'peeking', 'sliding', 'bouncing'].includes(urlMode)) {
+      setMode(urlMode);
     } else {
-      setMode('peeking');
+      const savedMode = localStorage.getItem('catMode');
+      setMode(savedMode || 'plain');
     }
 
   </script>
