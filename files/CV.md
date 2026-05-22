@@ -5,7 +5,7 @@ Senior Data Scientist
 
 📍 London, UK | [LinkedIn](https://www.linkedin.com/in/yulia-volkova/) | +447450514095 | yuulia.volkova@gmail.com
 
-*Senior Data Scientist with 8 years of experience delivering scalable ML solutions and NLP systems in production. Expertise in LLM evaluation & post-training, statistical modelling, and MLOps/infra. Passionate about AI alignment and technical safety, with a focus on mechanistic interpretability and AI control.*
+*Senior Data Scientist with 8 years of experience building insider threat detection and behavioral monitoring systems in production -- now applying that threat-modelling expertise to AI control and alignment. Deep background in designing classifiers and risk taxonomies for identifying when trusted entities act against organisational interests: first for human insiders, now for AI agents.*
 
 <hr style="border: 1px solid #0077b6; margin: 20px 0;">
 
@@ -14,8 +14,8 @@ Senior Data Scientist
 #### Visiting Member at [London Initiative for Safe AI (LISA)](https://www.safeai.org.uk/) <span style="float:right">Sept 2025 - present</span>
 
 #### [MATS 9.0](https://www.matsprogram.org/) <span style="float:right">Jan 2026 - present</span>
-- Control evaluations for covert malicious fine-tuning under Rhys Ward
-- Selected for MATS 9.0 Spotlight Talk
+- Control evaluations for covert malicious fine-tuning under Francis Rhys Ward, advised by Tyler Tracy and James Lucassen (Redwood Research). Submitted to NeurIPS 2026, preprint coming soon
+- Selected for MATS 9.0 Spotlight Talk — opened the London event ([YouTube](https://youtu.be/_ZptPpgc7_g))
 
 #### [SPAR Fellowship](https://sparai.org/) <span style="float:right">Oct–Dec 2025</span>
 - CoT monitorabilty project under Qiyao Wei (MATS 8.0, Cambridge University)  
@@ -30,9 +30,16 @@ Senior Data Scientist
 
 <hr style="border: 1px solid #0077b6; margin: 20px 0;">
 
+### Media & Talks
+
+- **MATS Spotlight Talk** — opened the MATS 9.0 London event ([YouTube](https://youtu.be/_ZptPpgc7_g))
+- **FellowCast Podcast** — "Covert Malicious Fine-Tuning" ([Spotify](https://open.spotify.com/episode/3c8H6KKFCNwWfEj28GcXmH))
+
+<hr style="border: 1px solid #0077b6; margin: 20px 0;">
+
 
 ### Work Experience – Behavox
-*Behavox is a security software company specialising in communication surveillance. Leading AI compliance solution in the marketplace.*
+*Behavox is a security software company specialising in insider threat detection, behavioral monitoring, and communication surveillance. Leading AI compliance solution in the marketplace.*
 
 #### Data Science Production Team Lead <span style="float: right">2024–2025</span>
 - Led development and deployment of LLM-driven Java applications across 3 products and 14 languages, using a pipeline of fine-tuned models (SBERT -> DeBERTa -> Qwen-14B)
@@ -40,12 +47,12 @@ Senior Data Scientist
 - Led cross-team roadmapping for ML features under production constraints
 - Built reusable tooling—CI/CD templates and MLflow tracking—enabling rapid MVPs for client deliveries 
 
-#### Insider Crime Product Lead <span style="float: right">2020–2024</span>
+#### Insider Threat Product Lead <span style="float: right">2020–2024</span>
+- Designed risk taxonomy and classifiers for insider threats — data exfiltration, disgruntlement, flight risk — mapping the same detection logic now used in AI oversight (monitoring trusted entities with system access)
+- Worked directly with heads of insider risk at Citadel, SoftBank, and other Tier-1 financial institutions to validate detection models against real threat landscapes
 - Led R&D and production of high-recall (81% at 0.5% FPR) misconduct detection systems using RoBERTa + SBERT models architecture pipeline
-- Specialised in working with LLMs, fine-tuning + pre-training them to meet Insider Crime product requirements
 - Validated and proved that shorter text sequences in RoBERTa training maintain performance, doubling training speed and halving company training costs
-- Built and operated a chatbot for internal workflows hosted on AWS and containerized with Docker, orchestrated via Nomad using the Slack API—serving 200+ daily users
-- Developed a hybrid recommendation system leveraging RoBERTa and SBERT for text embeddings, K-Means for clustering, and integrated user attributes into a CatBoost model for personalised predictions
+- Built internal tooling (chatbot, recommendation system) serving 200+ daily users, leveraging RoBERTa/SBERT embeddings, K-Means clustering, and CatBoost
 
 #### Data Scientist <span style="float: right">2017–2020</span>
 *Key responsibilities:* development of multilingual applications and reports to flag statistical deviations and compliance breaches in client data, designing and building infrastructure to support application creation, QA and maintenance
