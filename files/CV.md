@@ -5,7 +5,7 @@ Senior Data Scientist
 
 📍 London, UK | [LinkedIn](https://www.linkedin.com/in/yulia-volkova/) | +447450514095 | yuulia.volkova@gmail.com
 
-*Senior Data Scientist with 8 years of experience building insider threat detection and behavioral monitoring systems in production -- now applying that threat-modelling expertise to AI control and alignment. Deep background in designing classifiers and risk taxonomies for identifying when trusted entities act against organisational interests: first for human insiders, now for AI agents.*
+*Senior Data Scientist with 7+ years of experience building insider threat detection and communication surveillance systems in production -- now working on AI control evaluations at MATS. First hand witnessed AI integration into the regulation sector, which inspired the move to AI safety.*
 
 <hr style="border: 1px solid #0077b6; margin: 20px 0;">
 
@@ -13,9 +13,15 @@ Senior Data Scientist
 
 #### Visiting Member at [London Initiative for Safe AI (LISA)](https://www.safeai.org.uk/) <span style="float:right">Sept 2025 - present</span>
 
-#### [MATS 9.0](https://www.matsprogram.org/) <span style="float:right">Jan 2026 - present</span>
+#### [MATS 9.0](https://www.matsprogram.org/) <span style="float:right">Jan – Apr 2026</span>
 - Control evaluations for covert malicious fine-tuning under Francis Rhys Ward, advised by Tyler Tracy and James Lucassen (Redwood Research). Submitted to NeurIPS 2026, preprint coming soon
 - Selected for MATS 9.0 Spotlight Talk — opened the London event ([YouTube](https://youtu.be/_ZptPpgc7_g))
+
+#### [MATS 9.1 Extension](https://www.matsprogram.org/) <span style="float:right">Apr 2026 - present</span>
+
+#### [Athena Women in AI Safety Research Fellowship](https://researchathena.org/) <span style="float:right">Nov 2025 – Jan 2026</span>
+- Mechanistic interpretability approach to monitoring chain-of-thought faithfulness under Arun Jose
+- Gathered feedback from Adam Karvonen, Goodfire team, and Uzay Macar; integrating in MATS 9.1 extension phase
 
 #### [SPAR Fellowship](https://sparai.org/) <span style="float:right">Oct–Dec 2025</span>
 - CoT monitorabilty project under Qiyao Wei (MATS 8.0, Cambridge University)  
@@ -32,8 +38,8 @@ Senior Data Scientist
 
 ### Media & Talks
 
-- **MATS Spotlight Talk** — opened the MATS 9.0 London event ([YouTube](https://youtu.be/_ZptPpgc7_g))
-- **FellowCast Podcast** — "Covert Malicious Fine-Tuning" ([Spotify](https://open.spotify.com/episode/3c8H6KKFCNwWfEj28GcXmH))
+- **MATS 9.1 Spotlight Talk** — opened the London event ([YouTube](https://youtu.be/_ZptPpgc7_g))
+- **FellowCast Podcast at [Constellation](https://constellation.org/)** — "Covert Malicious Fine-Tuning" ([Spotify](https://open.spotify.com/episode/3c8H6KKFCNwWfEj28GcXmH))
 
 <hr style="border: 1px solid #0077b6; margin: 20px 0;">
 
