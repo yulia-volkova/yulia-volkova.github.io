@@ -67,6 +67,10 @@ Algoverse AI Safety Research Fellowship. PI: Callum McDougall, mentor: Nicky P. 
 ### Talks
 
 - **MATS 9.0 Spotlight Talk** — opened the London event ([YouTube](https://youtu.be/_ZptPpgc7_g))
+- **MATS Project Talks at [LISA](https://www.safeai.org.uk/) and Google DeepMind London** (Jun 2026) — presented the covert malicious fine-tuning project (F. R. Ward's stream) to research audiences at both offices
+
+  <img src="lisa_talk_jun2026.jpg" alt="Presenting the MATS project at LISA, June 2026" style="max-width: 420px; width: 100%; border-radius: 6px; margin: 8px 0;">
+
 - **FellowCast Podcast at [Constellation](https://constellation.org/)** — "Covert Malicious Fine-Tuning" ([Spotify](https://open.spotify.com/episode/3c8H6KKFCNwWfEj28GcXmH))
 
 <hr style="border: 1px solid #0077b6; margin: 20px 0;">
