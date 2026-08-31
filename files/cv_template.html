@@ -1,372 +1,336 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yulia Volkova CV</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+  @page {
+    size: Letter;
+    margin: 0.46in 0.58in;
+  }
+
+  * { box-sizing: border-box; }
 
   body {
-    font-family: 'EB Garamond', 'Georgia', serif;
-    font-size: 11.5pt;
-    color: #1a1a1a;
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 40px 60px;
-    line-height: 1.4;
+    margin: 0;
+    color: #171717;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 9.25pt;
+    line-height: 1.27;
   }
 
   h1 {
+    margin: 0 0 2px;
     text-align: center;
-    font-size: 28pt;
+    font-size: 23pt;
     font-variant: small-caps;
-    letter-spacing: 3px;
-    margin-bottom: 4px;
+    font-weight: 400;
+    letter-spacing: 2.6px;
+  }
+
+  a {
+    color: #164f8c;
+    text-decoration: none;
+  }
+
+  .website,
+  .contact {
+    text-align: center;
+    font-size: 8.7pt;
+  }
+
+  .contact { margin-top: 2px; }
+
+  .summary {
+    margin: 10px 0 13px;
+    padding: 8px 11px;
+    border: 1px solid #d4c67a;
+    background: #fffde7;
+    font-size: 8.9pt;
+    line-height: 1.34;
+  }
+
+  .section-title {
+    margin: 11px 0 6px;
+    padding-bottom: 2px;
+    border-bottom: 1.2px solid #222;
+    font-size: 11.5pt;
+    font-variant: small-caps;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+  }
+
+  .page-break { break-before: page; }
+
+  .row {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    column-gap: 10px;
+    margin: 0 0 6px;
+  }
+
+  .date {
+    padding-top: 1px;
+    color: #333;
+    font-size: 8.6pt;
+    font-style: italic;
+    white-space: nowrap;
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 9.6pt;
+  }
+
+  .venue {
+    float: right;
+    margin-left: 10px;
+    font-size: 8.6pt;
+    font-style: italic;
     font-weight: 400;
   }
 
-  .contact {
-    text-align: center;
-    font-size: 10pt;
-    margin-bottom: 6px;
-    color: #333;
+  .authors,
+  .detail {
+    font-size: 8.8pt;
   }
 
-  .contact a {
-    color: #1a0dab;
-    text-decoration: none;
-  }
-
-  .website {
-    text-align: center;
-    font-size: 10pt;
-    margin-bottom: 12px;
-  }
-
-  .website a {
-    color: #1a0dab;
-    text-decoration: none;
-  }
-
-  .summary-box {
-    background: #fffde7;
-    border: 1px solid #d4c67a;
-    padding: 12px 16px;
-    margin: 14px 0 20px 0;
-    font-size: 10.5pt;
-    line-height: 1.5;
-  }
-
-  .summary-box a {
-    color: #1a0dab;
-    text-decoration: underline;
-  }
-
-  .section-header {
-    font-variant: small-caps;
-    font-size: 13pt;
-    letter-spacing: 1.5px;
-    border-bottom: 1.5px solid #1a1a1a;
-    padding-bottom: 3px;
-    margin-top: 22px;
-    margin-bottom: 10px;
+  .subheading {
+    margin: 5px 0 2px;
     font-weight: 700;
-  }
-
-  .entry {
-    margin-bottom: 10px;
-  }
-
-  .entry-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 1px;
-  }
-
-  .entry-title {
-    font-weight: 700;
-    font-size: 11.5pt;
-  }
-
-  .entry-title a {
-    color: #1a0dab;
-    text-decoration: none;
-  }
-
-  .entry-date {
-    font-style: italic;
-    font-size: 10.5pt;
-    white-space: nowrap;
-    color: #333;
-  }
-
-  .entry-subtitle {
-    font-style: italic;
-    font-size: 10.5pt;
-    margin-bottom: 2px;
   }
 
   ul {
-    margin: 3px 0 6px 0;
-    padding-left: 18px;
+    margin: 2px 0 5px;
+    padding-left: 16px;
   }
 
   li {
-    margin-bottom: 2px;
-    font-size: 10.5pt;
-    line-height: 1.4;
+    margin: 0 0 1.5px;
   }
 
-  .pub-entry {
-    margin-bottom: 10px;
-    display: flex;
-    gap: 12px;
-  }
-
-  .pub-year {
-    font-weight: 700;
-    min-width: 40px;
-  }
-
-  .pub-details {
-    flex: 1;
-  }
-
-  .pub-title {
-    font-weight: 700;
-  }
-
-  .pub-title a {
-    color: #1a0dab;
-    text-decoration: none;
-  }
-
-  .pub-venue {
+  .company-note {
+    margin-top: 2px;
     font-style: italic;
-    float: right;
-    font-size: 10.5pt;
   }
 
-  .pub-authors {
-    font-size: 10pt;
+  .education .row,
+  .media .row {
+    margin-bottom: 5px;
   }
 
-  .media-item {
-    font-size: 10.5pt;
-    margin-bottom: 4px;
-  }
-
-  .media-item a {
-    color: #1a0dab;
-    text-decoration: none;
-  }
-
-  .skills-line {
-    font-size: 10.5pt;
+  .skills-row {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    column-gap: 8px;
     margin-bottom: 3px;
+    font-size: 8.65pt;
   }
 
-  .skills-label {
-    font-weight: 700;
-  }
+  .skills-label { font-weight: 700; }
+
+  .avoid-break { break-inside: avoid; }
 </style>
 </head>
 <body>
 
 <h1>Yulia Volkova</h1>
 <div class="website"><a href="https://yulia-volkova.github.io/">yulia-volkova.github.io</a></div>
-<div class="contact">
-  <a href="https://www.linkedin.com/in/yulia-volkova/">LinkedIn</a> &nbsp;&bull;&nbsp;
-  <a href="https://github.com/yulia-volkova">GitHub</a> &nbsp;&bull;&nbsp;
-  yuulia.volkova@gmail.com &nbsp;&bull;&nbsp;
-  +447450514095
+<div class="contact"><a href="https://www.linkedin.com/in/yulia-volkova/">LinkedIn</a> &nbsp;&bull;&nbsp; yuulia.volkova@gmail.com</div>
+
+<div class="summary">
+  I am a MATS 9.1 scholar working on AI control evaluations. I have 8+ years of experience building insider-threat detection and communication-surveillance systems at Behavox for Tier-1 financial institutions. I witnessed firsthand the integration of AI into the regulatory sector, which inspired me to move into AI safety. Further details can be found on my <a href="https://yulia-volkova.github.io/">website</a>.
 </div>
 
-<div class="summary-box">
-I am a MATS 9.1 scholar working on AI control evaluations with Rhys Ward and Redwood Research. I have 7+ years of experience building insider threat detection and communication surveillance systems at Behavox for Tier-1 financial institutions. I first hand witnessed AI integration into the regulation sector, which inspired me to move and work on AI safety. Further details can be found on my <a href="https://yulia-volkova.github.io/">website</a>.
-</div>
+<div class="section-title">Selected Publications</div>
 
-<div class="section-header">Education</div>
-
-<div class="entry">
-  <div class="entry-header">
-    <span class="entry-title">London School of Economics</span>
-  </div>
-  <div class="entry-subtitle">MSc Economics</div>
-  <ul>
-    <li>Distinction (<a href="https://drive.google.com/file/d/1Ke2w_isoL89c8fvNq5NykW69vad86SC4/view?usp=sharing">dissertation in behavioural economics</a>)</li>
-    <li>Courses included Advanced Macroeconomics, Econometrics, Quantitative Methods</li>
-  </ul>
-</div>
-
-<div class="entry">
-  <div class="entry-header">
-    <span class="entry-title">London School of Economics</span>
-  </div>
-  <div class="entry-subtitle">BSc Philosophy &amp; Economics</div>
-  <ul>
-    <li>Distinction</li>
-    <li>Courses included Mathematical Methods, Statistics, Econometrics, Philosophy of Science</li>
-  </ul>
-</div>
-
-<div class="section-header">Selected Publications</div>
-
-<div class="pub-entry">
-  <div class="pub-year">2026</div>
-  <div class="pub-details">
-    <span class="pub-title">Control Evaluations for Covert Malicious Fine-Tuning.</span>
-    <span class="pub-venue">Submitted to NeurIPS 2026</span><br>
-    <span class="pub-authors">Buckworth, T., Moreno, R., Panda, A., <b>Volkova, Y.</b> Supervised by Dr Francis Rhys Ward.</span>
+<div class="row avoid-break">
+  <div class="date">2026</div>
+  <div>
+    <div class="title">Control Evaluations for Covert Malicious Fine-Tuning <span class="venue">Submitted to NeurIPS 2026</span></div>
+    <div class="authors">Buckworth, T., Moreno, R., Panda, A., <b>Volkova, Y.</b></div>
+    <div class="detail">Supervised by Dr Francis Rhys Ward.</div>
   </div>
 </div>
 
-<div class="pub-entry">
-  <div class="pub-year"></div>
-  <div class="pub-details">
-    <span class="pub-title"><a href="https://arxiv.org/abs/2511.00180">Residual Stream Decoders for Probing Model Activations.</a></span>
-    <span class="pub-venue">Submitted to ICML</span><br>
-    <span class="pub-authors">Algoverse AI Safety Research Fellowship. PI: Callum McDougall, mentor: Nicky P.</span>
+<div class="row avoid-break">
+  <div class="date">2026</div>
+  <div>
+    <div class="title"><a href="https://arxiv.org/abs/2607.22750">Commitment to Cooperation With Self-Negotiated Contracts</a> <span class="venue">COLM 2026</span></div>
+    <div class="authors">Wyse, T., Bustos, K., <b>Volkova, Y.</b>, Kleiman-Weiner, M.</div>
+    <div class="detail">Algoverse AI Safety Research Fellowship, Cooperative AI track. Mentor: Max Kleiman-Weiner.</div>
   </div>
 </div>
 
-<div class="section-header">Positions and Programs</div>
-
-<div class="entry">
-  <div class="entry-header">
-    <span class="entry-title"><a href="https://www.matsprogram.org/">MATS 9.1 Extension</a></span>
-    <span class="entry-date">Apr 2026 &ndash; Present</span>
-  </div>
-  <ul>
-    <li>Continuing control evaluations research under Francis Rhys Ward</li>
-  </ul>
-</div>
-
-<div class="entry">
-  <div class="entry-header">
-    <span class="entry-title"><a href="https://www.matsprogram.org/">MATS 9.0</a></span>
-    <span class="entry-date">Jan &ndash; Apr 2026</span>
-  </div>
-  <ul>
-    <li>Control evaluations for covert malicious fine-tuning under Francis Rhys Ward, advised by Tyler Tracy and James Lucassen (Redwood Research)</li>
-    <li>Selected for MATS 9.0 Spotlight Talk &mdash; opened the London event</li>
-  </ul>
-</div>
-
-<div class="entry">
-  <div class="entry-header">
-    <span class="entry-title"><a href="https://researchathena.org/">Athena Women in AI Safety Research Fellowship</a></span>
-    <span class="entry-date">Nov 2025 &ndash; Jan 2026</span>
-  </div>
-  <ul>
-    <li><a href="https://thought-anchors-faithfulness.vercel.app/">Mechanistic interpretability approach to monitoring chain-of-thought faithfulness</a> under Arun Jose</li>
-    <li>Gathered feedback from Adam Karvonen, Goodfire team, and Uzay Macar; integrating in MATS 9.1 extension phase</li>
-  </ul>
-</div>
-
-<div class="entry">
-  <div class="entry-header">
-    <span class="entry-title"><a href="https://sparai.org/">SPAR Fellowship</a></span>
-    <span class="entry-date">Oct &ndash; Dec 2025</span>
-  </div>
-  <ul>
-    <li>CoT monitorability project under Qiyao Wei (MATS 8.0, Cambridge University)</li>
-  </ul>
-</div>
-
-<div class="entry">
-  <div class="entry-header">
-    <span class="entry-title">Visiting Member, <a href="https://www.safeai.org.uk/">London Initiative for Safe AI (LISA)</a></span>
-    <span class="entry-date">Sept 2025 &ndash; Present</span>
+<div class="row avoid-break">
+  <div class="date">2025</div>
+  <div>
+    <div class="title">ParaScopes: What Do Language Model Activations Encode About Future Text?</div>
+    <div class="authors">Pochinkov, N., <b>Volkova, Y.</b>, Vasileva, A., Chereddy, S. V. R.</div>
+    <div class="detail">Algoverse AI Safety Research Fellowship. PI: Callum McDougall; mentor: Nicky P.</div>
   </div>
 </div>
 
-<div class="entry">
-  <div class="entry-header">
-    <span class="entry-title"><a href="https://algoverseairesearch.org/ai-safety-fellowship">Algoverse AI Safety Research Fellowship</a></span>
-    <span class="entry-date">Jul &ndash; Aug 2025</span>
+<div class="section-title">Research Programs</div>
+
+<div class="row avoid-break">
+  <div class="date">Jan 2026&ndash;Present</div>
+  <div>
+    <div class="title"><a href="https://www.matsprogram.org/">MATS 9.0</a></div>
+    <ul>
+      <li>Control evaluations for covert malicious fine-tuning under Francis Rhys Ward, with Tyler Tracy and James Lucassen acting as advisors</li>
+      <li>Selected for the MATS 9.0 Spotlight Talk</li>
+    </ul>
   </div>
-  <ul>
-    <li>Mechanistic interpretability under Nicky P</li>
-    <li>Cooperative AI under Max Kleiman-Weiner</li>
-  </ul>
 </div>
 
-<div class="entry">
-  <div class="entry-header">
-    <span class="entry-title"><a href="https://oaisi.org/arbox/">ARBOx2 Oxford AI Safety Bootcamp</a></span>
-    <span class="entry-date">Jul 2025</span>
+<div class="row avoid-break">
+  <div class="date">Nov 2025</div>
+  <div>
+    <div class="title"><a href="https://researchathena.org/">Athena Women in AI Safety Research Fellowship</a></div>
+    <ul><li>Mechanistic interpretability approach to monitoring chain-of-thought faithfulness under Arun Jose</li></ul>
   </div>
-  <ul>
-    <li>Completed the ARENA curriculum</li>
-  </ul>
 </div>
 
-<div class="section-header">Media &amp; Talks</div>
-
-<div class="media-item">&bull; <b>MATS 9.0 Spotlight Talk</b> &mdash; opened the London event (<a href="https://youtu.be/_ZptPpgc7_g">YouTube</a>)</div>
-<div class="media-item">&bull; <b>MATS Project Talks at <a href="https://www.safeai.org.uk/">LISA</a> and Google DeepMind London</b> (Jun 2026) &mdash; presented the covert malicious fine-tuning project (F. R. Ward's stream) to research audiences at both offices</div>
-<div class="media-item" style="margin: 8px 0 8px 14px;"><img src="lisa_talk_jun2026.jpg" alt="Presenting the MATS project at LISA, June 2026" style="max-width: 320px; width: 100%; border-radius: 6px;"></div>
-<div class="media-item">&bull; <b>FellowCast Podcast at <a href="https://constellation.org/">Constellation</a></b> &mdash; "Covert Malicious Fine-Tuning" (<a href="https://open.spotify.com/episode/3c8H6KKFCNwWfEj28GcXmH">Spotify</a>)</div>
-
-<div class="section-header">Work Experience</div>
-
-<div class="entry">
-  <div class="entry-header">
-    <span class="entry-title"><a href="https://www.behavox.com/">Behavox</a></span>
-    <span class="entry-date">2017 &ndash; 2025</span>
+<div class="row avoid-break">
+  <div class="date">Oct 2025</div>
+  <div>
+    <div class="title"><a href="https://sparai.org/">SPAR Fellowship</a></div>
+    <ul><li>Chain-of-thought monitorability project under Qiyao Wei, MATS 8.0 and Cambridge University</li></ul>
   </div>
-  <div class="entry-subtitle">Insider threat detection, communication surveillance, and compliance</div>
 </div>
 
-<div class="entry">
-  <div class="entry-header">
-    <span class="entry-title">Data Science Production Team Lead</span>
-    <span class="entry-date">2024 &ndash; 2025</span>
+<div class="row avoid-break">
+  <div class="date">Aug 2025</div>
+  <div>
+    <div class="title"><a href="https://algoverseairesearch.org/ai-safety-fellowship">Algoverse AI Safety Research Fellowship</a></div>
+    <ul>
+      <li>Mechanistic interpretability under Nicky P.</li>
+      <li>Cooperative AI under Max Kleiman-Weiner</li>
+    </ul>
   </div>
-  <ul>
-    <li>Led development and deployment of LLM-driven Java applications across 3 products and 14 languages, using a pipeline of fine-tuned models (SBERT &rarr; DeBERTa &rarr; Qwen-14B)</li>
-    <li>Managed execution of Java applications on the Apache Beam Dataflow runner; monitored GPU utilization and used BigQuery datasets to debug pipeline behavior and resolve incidents</li>
-    <li>Led cross-team roadmapping for ML features under production constraints</li>
-    <li>Built reusable tooling&mdash;CI/CD templates and MLflow tracking&mdash;enabling rapid MVPs for client deliveries</li>
-  </ul>
 </div>
 
-<div class="entry">
-  <div class="entry-header">
-    <span class="entry-title">Insider Threat Product Lead</span>
-    <span class="entry-date">2020 &ndash; 2024</span>
+<div class="row avoid-break">
+  <div class="date">Jul 2025</div>
+  <div>
+    <div class="title"><a href="https://oaisi.org/arbox/">ARBOx2 Oxford AI Safety Bootcamp</a></div>
+    <ul><li>Completed the ARENA curriculum</li></ul>
   </div>
-  <ul>
-    <li>Designed risk taxonomy and classifiers for insider threats&mdash;data exfiltration, disgruntlement, flight risk</li>
-    <li>Worked directly with heads of insider risk at Citadel, SoftBank, and other Tier-1 financial institutions to validate detection models against real threat landscapes</li>
-    <li>Led R&amp;D and production of high-recall (81% at 0.5% FPR) misconduct detection systems using RoBERTa + SBERT pipeline</li>
-    <li>Validated that shorter text sequences in RoBERTa training maintain performance, doubling training speed and halving costs</li>
-    <li>Built internal tooling (chatbot, recommendation system) serving 200+ daily users</li>
-  </ul>
 </div>
 
-<div class="entry">
-  <div class="entry-header">
-    <span class="entry-title">Data Scientist</span>
-    <span class="entry-date">2017 &ndash; 2020</span>
+<div class="section-title">Work Experience</div>
+
+<div class="row avoid-break">
+  <div class="date">Aug 2017&ndash;Sep 2025</div>
+  <div>
+    <div class="title"><a href="https://www.behavox.com/">Behavox Ltd.</a></div>
+    <div class="company-note">AI-powered compliance and conduct surveillance for financial institutions</div>
   </div>
-  <ul>
-    <li>Landed proof of concepts that resulted in 3+ years client contracts</li>
-    <li>Improved compliance model recalls from 70% to 90%</li>
-    <li>Reduced client bug requests from 1/day to 1/month by setting up an efficient QA process</li>
-    <li>One of the first Data Science hires; created foundational documentation during company scaling</li>
-  </ul>
 </div>
 
-<div class="section-header">Additional Skills and Interests</div>
+<div class="row">
+  <div class="date">Jul 2020&ndash;Sep 2025</div>
+  <div>
+    <div class="title">Senior Data Scientist, ML Development</div>
+    <div class="subheading">Key responsibilities</div>
+    <ul>
+      <li>Led the development of Insider Threat ML applications from the Data Science team perspective. These applications analyzed workplace text communications and flagged insider-threat indicators for investigation</li>
+      <li>Oversaw and took full responsibility for bringing ML applications into production</li>
+      <li>Designed ML applications and maintained end-to-end ownership of their production ML pipelines</li>
+      <li>Managed technical implementation, including developing Java backend and Groovy components to integrate ML applications into the production system</li>
+      <li>Directed and oversaw all ongoing production tasks related to ML applications</li>
+    </ul>
+    <div class="avoid-break">
+      <div class="subheading">Selected technical achievements</div>
+      <ul>
+        <li>Ran RoBERTa sequence-length experiments that preserved model performance while increasing training throughput by 2&times; and reducing compute costs by 50%</li>
+        <li>Developed a synthetic-data generation pipeline that automatically created and uploaded test datasets to AWS S3 through Jenkins, modernizing the QA process</li>
+        <li>Created an automated process that reduced ML application development time from 3 days to 10 minutes</li>
+        <li>Consolidated 4 legacy security-monitoring products into 1 scalable solution, reducing backend maintenance requirements</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-<div class="skills-line"><span class="skills-label">Programming Languages:</span> Python, PyTorch, HuggingFace, Pandas, NumPy, Scikit-learn, FastAPI, spaCy, SQL, Java, Kotlin</div>
-<div class="skills-line"><span class="skills-label">Machine Learning &amp; NLP:</span> LLM fine-tuning (LoRA/qLoRA), prompt engineering, transformers, SBERT, PCA, t-SNE, Weights &amp; Biases</div>
-<div class="skills-line"><span class="skills-label">Infrastructure:</span> AWS S3, GCP, Docker, Nomad, Kubernetes, TeamCity, Gitlab CI/CD pipelines</div>
-<div class="skills-line"><span class="skills-label">Statistics &amp; Econometrics:</span> Hypothesis testing, time-series analysis, A/B testing, IV estimation, panel regression</div>
-<div class="skills-line"><span class="skills-label">Leadership:</span> Mentorship, technical interviewing, product roadmapping, cross-team communication</div>
-<div class="skills-line"><span class="skills-label">Other Interests:</span> Oil painting, skiing, hiking</div>
+<div class="row">
+  <div class="date">Aug 2017&ndash;Jun 2020</div>
+  <div>
+    <div class="title">ML Applications Developer</div>
+    <div class="detail">Key responsibilities: development of multilingual applications and reports to flag statistical deviations and compliance breaches in client data, designing and building infrastructure to support application creation, QA and maintenance.</div>
+    <ul>
+      <li>Landed proof of concepts that resulted in 3+ years client contracts</li>
+      <li>Improved compliance model recalls from 70% to 90%</li>
+      <li>Reduced client bug requests from 1/day to 1/month by setting up an efficient QA process</li>
+      <li>Learned Java to remove the Analytics dependency on Backend teams</li>
+      <li>Developed best practices for code quality as one of the first Data Science hires and created foundational documentation that helped onboard 13 people</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section-title">Education</div>
+
+<div class="row avoid-break education">
+  <div class="date"></div>
+  <div>
+    <div class="title">London School of Economics</div>
+    <div class="detail"><b>MSc Economics</b></div>
+    <ul>
+      <li>Distinction in dissertation</li>
+      <li>Dissertation in behavioural economics</li>
+      <li>Courses included Advanced Macroeconomics, Econometrics, and Quantitative Methods</li>
+    </ul>
+  </div>
+</div>
+
+<div class="row avoid-break education">
+  <div class="date"></div>
+  <div>
+    <div class="title">London School of Economics</div>
+    <div class="detail"><b>BSc Philosophy &amp; Economics</b></div>
+    <ul>
+      <li>First Class Honours</li>
+      <li>Courses included Mathematical Methods, Statistics, Econometrics, and Philosophy of Science</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section-title page-break">Media &amp; Talks</div>
+
+<div class="row media avoid-break">
+  <div class="date">Aug 2026</div>
+  <div><span class="title">GovAI expert panel</span> &mdash; “OpenAI x Hugging Face incident: What happened? What’s next?” (<a href="https://luma.com/3ms5xzrb">Event</a>)</div>
+</div>
+
+<div class="row media avoid-break">
+  <div class="date">Jul 2026</div>
+  <div><span class="title">Secret Loyalties AI safety research hackathon</span> &mdash; invited to serve as a judge for the hackathon organized by <a href="https://apartresearch.com/sprints/secret-loyalties-hackathon-2026-07-24-to-2026-07-26">Apart Research and Formation Research</a></div>
+</div>
+
+<div class="row media avoid-break">
+  <div class="date">Jun 2026</div>
+  <div><span class="title">MATS project talks at LISA and Google DeepMind London</span> &mdash; presented the covert malicious fine-tuning project from Francis Rhys Ward’s stream to research audiences at both offices</div>
+</div>
+
+<div class="row media avoid-break">
+  <div class="date">Apr 2026</div>
+  <div><span class="title">MATS 9.0 Spotlight Talk</span> &mdash; opened the London event (<a href="https://youtu.be/_ZptPpgc7_g">YouTube</a>)</div>
+</div>
+
+<div class="row media avoid-break">
+  <div class="date">Mar 2026</div>
+  <div><span class="title">FellowCast Podcast at Constellation</span> &mdash; “Covert Malicious Fine-Tuning” (<a href="https://open.spotify.com/episode/3c8H6KKFCNwWfEj28GcXmH">Spotify</a>)</div>
+</div>
+
+<div class="section-title">Skills Summary</div>
+
+<div class="skills-row"><div class="skills-label">Technology</div><div>Groovy, Java, Python, Pandas, Matplotlib, Seaborn, Scikit-learn, NumPy, PyTorch, SQLAlchemy, MySQL, HBase, Kotlin, R, Stata, AWS S3, unit testing, code review, CI/CD, Apache Spark</div></div>
+<div class="skills-row"><div class="skills-label">Data Science</div><div>Multivariate classification, SVM, logistic regression, regularization, multicollinearity, feature selection, cross-validation, class balancing, PCA, gradient boosting, t-SNE representations, KNN, and decision trees. Performance metrics: recall, precision, F-score, ROC-AUC, and PR-AUC</div></div>
+<div class="skills-row"><div class="skills-label">Statistics</div><div>Hypothesis testing, A/B testing, asymptotic theory, regression analysis, vector autoregressions, time-series analysis, panel-data analysis, fixed and random effects, and IV estimation</div></div>
+<div class="skills-row"><div class="skills-label">Software &amp; Frameworks</div><div>Jira, TeamCity, Jenkins, GitLab, Kibana, IntelliJ, PyCharm, Bitbucket, GitHub, JupyterLab, FastAPI, and Airflow</div></div>
+<div class="skills-row"><div class="skills-label">Leadership</div><div>Team planning, mentoring, interviewing and hiring, and roadmapping</div></div>
+<div class="skills-row"><div class="skills-label">Other Interests</div><div>Oil painting, skiing, and hiking</div></div>
 
 </body>
 </html>
