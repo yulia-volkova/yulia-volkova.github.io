@@ -50,9 +50,9 @@ Algoverse AI Safety Research Fellowship. PI: Callum McDougall; mentor: Nicky P.
 - Mechanistic interpretability under Nicky P.
 - Cooperative AI under Max Kleiman-Weiner
 
-**Jul 2025 — ARBOx2 Oxford AI Safety Bootcamp**
+**Jul 2025 — [ARBOx2 Oxford AI Safety Bootcamp](https://oaisi.org/arbox-4)**
 
-- Completed the ARENA curriculum
+- Completed the [ARENA](https://www.arena.education/curriculum) curriculum
 
 ## Work Experience
 
