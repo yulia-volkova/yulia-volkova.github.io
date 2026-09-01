@@ -94,7 +94,6 @@ Key responsibilities: development of multilingual applications and reports to fl
 **MSc Economics**
 
 - Distinction in dissertation
-- Dissertation in behavioural economics
 - Courses included Advanced Macroeconomics, Econometrics, and Quantitative Methods
 
 **London School of Economics**
