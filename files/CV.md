@@ -4,7 +4,7 @@
 
 [LinkedIn](https://www.linkedin.com/in/yulia-volkova/) | yuulia.volkova@gmail.com
 
-I am a MATS 9.1 research fellow working on AI control evaluations. I have 8 years of experience building insider-threat detection and communication-surveillance systems at Behavox for Tier-1 financial institutions. I witnessed firsthand the integration of AI into the regulatory sector, which inspired me to move into AI safety. Further details can be found on my [website](https://yulia-volkova.github.io/).
+I am an independent AI safety researcher working on AI control evaluations. I have 8 years of experience building insider-threat detection and communication-surveillance systems at Behavox for Tier-1 financial institutions. I witnessed firsthand the integration of AI into the regulatory sector, which inspired me to move into AI safety. Further details can be found on my [website](https://yulia-volkova.github.io/).
 
 ## Selected Publications
 
