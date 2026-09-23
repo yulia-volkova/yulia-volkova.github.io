@@ -32,7 +32,7 @@ Algoverse AI Safety Research Fellowship. PI: Callum McDougall; mentor: Nicky P.
 
 ## Research Programs
 
-**Jan 2026–Present — MATS 9.0**
+**Jan 2026 - September 2026 — MATS 9.0**
 
 - Control evaluations for covert malicious fine-tuning under Francis Rhys Ward, with Tyler Tracy and James Lucassen acting as advisors
 - Selected for the MATS 9.0 Spotlight Talk
